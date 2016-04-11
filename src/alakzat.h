@@ -6,8 +6,8 @@
 class Alakzat {
 protected:
     Color szin;
-    virtual void rajzol() = 0;
 public:
+    virtual void rajzol() = 0;
     virtual ~Alakzat() {}
 };
 
