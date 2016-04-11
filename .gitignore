@@ -1,0 +1,7 @@
+*.exe
+*.o
+bin/*
+obj/*
+*.depend
+*.layout
+*.zip
