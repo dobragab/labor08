@@ -4,9 +4,6 @@ SRCDIR   = src
 OBJDIR   = obj
 BINDIR   = .
 
-SDL_GFX_PATH = SDL_gfx
-SDL_GFX_TARGET = libSDL_gfx.a
-
 RM       = rm -f
 MAKEDIR  = mkdir -p
 
@@ -38,11 +35,11 @@ OBJECTS_CPP := $(SOURCES_CPP:$(SRCDIR)/%.cpp=$(OBJDIR)/%.cpp.o)
 OBJECTS_CC  := $(SOURCES_CC:$(SRCDIR)/%.cc=$(OBJDIR)/%.cc.o)
 OBJECTS_CXX := $(SOURCES_CXX:$(SRCDIR)/%.cxx=$(OBJDIR)/%.cxx.o)
 
-OBJECTS = $(OBJECTS_C) $(OBJECTS_CPP) $(OBJECTS_CC) $(OBJECTS_CXX) $(SDL_GFX_PATH)/$(SDL_GFX_TARGET)
+OBJECTS = $(OBJECTS_C) $(OBJECTS_CPP) $(OBJECTS_CC) $(OBJECTS_CXX)
 
 .PHONY: clean all dirs Linux LinuxDebug
 
-all: dirs SDL_gfx $(BINDIR)/$(BINARY)
+all: dirs $(BINDIR)/$(BINARY)
 
 Linux: all
 
@@ -51,13 +48,7 @@ LinuxDebug: CFLAGS += -DDEBUG -g -O0
 LinuxDebug: CXXFLAGS += -DDEBUG -g -O0
 LinuxDebug: LDFLAGS += -g
 
-SDL_gfx: SDL_gfx_lib $(SDL_GFX_PATH)/*
-
-SDL_gfx_lib:
-	$(MAKE) -C $(SDL_GFX_PATH) TARGETDIR=. TARGET=$(SDL_GFX_TARGET)
-
 clean:
-	$(MAKE) -C $(SDL_GFX_PATH) clean TARGETDIR=. TARGET=$(SDL_GFX_TARGET)
 	@$(RM) $(OBJDIR)/*.o
 	@$(RM) $(BINDIR)/$(BINARY)
 	@echo Cleaned successfully.
