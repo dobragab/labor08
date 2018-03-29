@@ -23,7 +23,7 @@ foglalt objektumot várjon, amit a destruktorában szabadítson is fel!
 
 4. Valósítsd meg a `LekerekitettTeglalap` osztályt, ami egyfajta `Teglalap`!
 
-5. Valósítsd meg azt, hogy az `AlakzatTarolo` is egy kirajzolható `Alakzat` legyen!
+5. Valósítsd meg azt, hogy az `AlakzatTarolo` is egy kirajzolható `Alakzat` legyen! Figyelj arra is, hogy ha az `AlakzatTarolo`-t mozgatjuk, akkor az összes tárolt alakzatának azzal együtt, csoportban kell mozognia! Mit kell ehhez módosítani az `Alakzat` osztályon?
 
 6. Bónusz: Rajzolj ki valami felismerhető ábrát az alakzatok segítségével!
 
